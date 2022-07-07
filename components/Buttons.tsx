@@ -3,7 +3,8 @@
 
 import React, {FC} from 'react';
 import {useEffect} from 'react';
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView, TouchableOpacity} from 'react-native';
+import { Text } from 'react-native-paper';
 import Styles from '../styles/Styles';
 
 interface Button {
@@ -18,20 +19,13 @@ const Buttons: FC<Button> = props => {
   return (
     <SafeAreaView>
       <TouchableOpacity
-        style={{
-          backgroundColor: !props.disabled ? '#F5F5DC' : '#F5DEB3',
-          width: '80%',
-          elevation: 5,
-          justifyContent: 'center',
-          alignContent: 'center',
-          marginLeft: 27,
-          height: 38,
-          marginTop: 10,
-        }}
+      style={Styles.button}
         onPress={() => {
           props.onPress();
         }}>
-          {props.text}
+          <Text>
+            {props.text}
+          </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

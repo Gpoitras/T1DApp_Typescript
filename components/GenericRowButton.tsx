@@ -8,14 +8,13 @@ import Styles from '../styles/Styles';
 
 interface GenericRowButtons {
   label: string;
-  values : any;
+  values : any[];
   selectedValue : any,
-  setSelectedValue : () => void,
+  setSelectedValue : (params: any) => any,
 }
 
 const GenericRowButtons: FC<GenericRowButtons> = props => (
-    
-    
+   
     <View style={{ padding: 10 }}>
       <Text style={Styles.label}>{props.label}</Text>
       <View style={Styles.row}>
@@ -40,6 +39,7 @@ const GenericRowButtons: FC<GenericRowButtons> = props => (
         ))}
       </View>
     </View>
+    
   );
   
   export default GenericRowButtons;
