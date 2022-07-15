@@ -39,7 +39,6 @@ const InsulinCalculator = () => {
     setShouldSplitBolus(result.split);
   };
 
-
   return (
       <View>
         <View>

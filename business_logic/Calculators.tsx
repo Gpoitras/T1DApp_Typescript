@@ -1,4 +1,15 @@
-/* eslint-disable prettier/prettier */
+import * as Const from './CalculatorConstants';
+
+function getRatio(): number {
+  
+  var timeOfDay = new Date().getHours();
+
+  var ratio = timeOfDay >= Const.MORNING_START_HOUR 
+      && timeOfDay < Const.MORNING_END_HOUR ? 
+      Const.MORNING_RATIO : Const.DAY_RATIO;
+
+  return ratio;
+}
 
 const CalculateInsulin = (
     carbs: number,
@@ -9,19 +20,10 @@ const CalculateInsulin = (
     mealIsVeryFatEnabled: boolean,
   ) => {
 
-    const morningRatio = 5;
-    const dayRatio = 10;
-    const upcomingExerciseFactor = 0.5;
-    const exercisedInLast24HoursFactor = 1.2;
-    const targetBG = 6.0;
-    const insulinToBGRatio = 0.33;
-
-    var timeOfDay = new Date().getHours();
-
-    var ratio = timeOfDay < 10 ? morningRatio : dayRatio;
-    ratio *= exercisedLatelyEnabled ? exercisedInLast24HoursFactor : 1;
-    var exerciseFactor = upcomingExerciseEnabled ? upcomingExerciseFactor : 1;
-    var adjustmentForCurrentBG = (targetBG - currentBG) * insulinToBGRatio * -1;
+    var ratio = getRatio();
+    ratio *= exercisedLatelyEnabled ? Const.EXERCISED_IN_LAST_24H_FACTOR : 1;
+    var exerciseFactor = upcomingExerciseEnabled ? Const.UPCOMING_EXERCISE_FACTOR : 1;
+    var adjustmentForCurrentBG = (Const.TARGET_BG - currentBG) * Const.INSULIN_TO_BG_RATIO * -1;
 
     // calculate bolus
     var insulin = (carbs / ratio) * exerciseFactor + adjustmentForCurrentBG;
@@ -29,23 +31,24 @@ const CalculateInsulin = (
     // calculate prebolus delay
     var prebolus;
     switch (carbType) {
-      case 'Slow':
-        prebolus = 0;
+      case Const.SLOW_INSULIN_STRING:
+        prebolus = Const.SLOW_CARB_PREBOLUS_MINUTES;
         break;
-      case 'Fast':
-        prebolus = 30;
+      case Const.FAST_INSULIN_STRING:
+        prebolus = Const.FAST_CARB_PREBOLUS_MINUTES;
         break;
       default:
-        prebolus = 15;
+        prebolus = Const.NORMAL_CARB_PREBOLUS_MINUTES;
     }
 
     if (mealIsVeryFatEnabled) {
-      prebolus -= 15;
+      prebolus -= Const.MINUTES_TO_REMOVE_IF_MEAL_FAT;
     }
 
     // check if bolus should be split
     var split = false;
-    if (insulin > 6 || (mealIsVeryFatEnabled && carbType === 'Fast')) {
+    if (insulin > Const.INSULIN_AMOUNT_MAX_TOLERATED_THRESHOLD 
+        || (mealIsVeryFatEnabled && carbType === Const.FAST_INSULIN_STRING)) {
       split = true;
       prebolus = 0;
     }
