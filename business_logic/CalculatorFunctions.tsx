@@ -11,14 +11,14 @@ function getRatio(): number {
   return ratio;
 }
 
-const CalculateInsulin = (
+export function CalculateInsulin (
     carbs: number,
     exercisedLatelyEnabled: boolean,
     upcomingExerciseEnabled: boolean,
     currentBG: number,
     carbType: string,
     mealIsVeryFatEnabled: boolean,
-  ) => {
+  ) {
 
     var ratio = getRatio();
     ratio *= exercisedLatelyEnabled ? Const.EXERCISED_IN_LAST_24H_FACTOR : 1;
@@ -56,5 +56,5 @@ const CalculateInsulin = (
     return {insulin, prebolus, split};
   };
 
-  export default CalculateInsulin;
+  // export default CalculateInsulin;
 

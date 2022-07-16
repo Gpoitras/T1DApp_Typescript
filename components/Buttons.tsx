@@ -5,7 +5,6 @@ import React, {FC} from 'react';
 import {useEffect} from 'react';
 import {SafeAreaView, TouchableOpacity} from 'react-native';
 import { Text } from 'react-native-paper';
-import Styles from '../styles/Styles';
 
 interface Button {
   text: string;
@@ -19,7 +18,7 @@ const Buttons: FC<Button> = props => {
   return (
     <SafeAreaView>
       <TouchableOpacity
-      style={Styles.button}
+      style={props.style}
         onPress={() => {
           props.onPress();
         }}>

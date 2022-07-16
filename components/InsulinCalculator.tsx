@@ -5,7 +5,7 @@ import GenericSwitch from './GenericSwitch';
 import GenericRowButtons from './GenericRowButton';
 import Buttons from './Buttons';
 import Styles from '../styles/Styles';
-import CalculateInsulin from '../business_logic/Calculators';
+import {CalculateInsulin} from '../business_logic/CalculatorFunctions';
 
 
 const InsulinCalculator = () => {

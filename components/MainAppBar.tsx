@@ -9,7 +9,7 @@ import { StyleSheet } from 'react-native';
 const MainAppBar = () => (
  <Appbar style={styles.bottom}>
    <Appbar.Action
-     icon="archive"
+     icon="camera"
      onPress={() => console.log('Pressed archive')}
     />
   </Appbar>

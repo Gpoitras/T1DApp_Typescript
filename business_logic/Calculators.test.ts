@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest';
-import CalculateInsulin from '../business_logic/Calculators';
+import {CalculateInsulin} from './CalculatorFunctions';
 
 interface Result {
     insulin: number;
