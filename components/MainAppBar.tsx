@@ -8,7 +8,7 @@ import Styles from '../styles/Styles';
 const MainAppBar = () => (
  <Appbar style={Styles.mainAppBar}>
    <Appbar.Action
-     icon="camera"
+     icon="archive"
      onPress={() => console.log('Pressed archive')}
     />
   </Appbar>
