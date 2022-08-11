@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput, Alert } from 'react-native';
 import GenericSwitch from './GenericSwitch';
 import GenericRowButtons from './GenericRowButton';
 import Buttons from './Buttons';
@@ -43,7 +43,7 @@ const InsulinCalculator = () => {
       <View>
         <View>
           <View style={Styles.row}>
-            <Text>Enter glucose amount (g)</Text>
+            <Text>Enter carbs (g)</Text>
             <TextInput
               style={Styles.input}
               value={carbs}
@@ -94,9 +94,22 @@ const InsulinCalculator = () => {
               text="Calculate"
               style={Styles.button}
               onPress={() => {
-                if (parseFloat(carbs) > 0 && parseFloat(currentBG) > 0) { // TODO éviter parser deux fois (plus haut et ici)
-                  getInsulinAmount();
+
+                try {
+                  let parsedCarbs = parseFloat(carbs);
+                  let parsedBG = parseFloat(currentBG);
+
+                  if (parsedCarbs > 0 && parsedBG > 0) { 
+                    getInsulinAmount();
+                  } else {
+                    Alert.alert("Number missing", "Please enter carbs and BG.");
+                  }
+
+                } catch (error) {
+                  Alert.alert("Error", "Carbs or BG number invalid.");
                 }}}
+
+                
               disabled={false}
             />
         </View>

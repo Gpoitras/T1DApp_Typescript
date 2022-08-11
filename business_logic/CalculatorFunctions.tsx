@@ -64,6 +64,10 @@ export function CalculateInsulin (
       insulin = Math.floor(insulin) + 0.5;
     }
 
+    if (insulin < 0) {
+      insulin = 0;
+    }
+
     return {insulin, prebolus, split};
   };
 
