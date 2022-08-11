@@ -10,7 +10,7 @@ const ScreenHeader: FC<Header> = props => {
 
     return (
         <View style={Styles.screenHeader}>
-            <Text>
+            <Text style={Styles.screenHeaderText}>
                 {props.title}
             </Text>
         </View>

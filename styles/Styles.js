@@ -83,7 +83,8 @@ const Styles = StyleSheet.create({
       alignItems: 'center',
     },
     screenHeaderText: {
-      color: 'black'
+      fontWeight: 'bold',
+      fontSize: 25
     },
     screenBody: {
       flex: 12,
