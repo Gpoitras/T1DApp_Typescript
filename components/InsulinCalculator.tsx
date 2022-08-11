@@ -64,15 +64,15 @@ const InsulinCalculator = () => {
           </View>
 
           <GenericSwitch
-            displayedText={'Upcoming exercise?'}
-            onValueChange={toggleSwitchUpcomingExercise}
-            value={upcomingExerciseEnabled}
-          />
-
-          <GenericSwitch
             displayedText={'Exercised lately?'}
             onValueChange={toggleSwitchExercisedLately}
             value={exercisedLatelyEnabled}
+          />
+
+          <GenericSwitch
+            displayedText={'Upcoming exercise?'}
+            onValueChange={toggleSwitchUpcomingExercise}
+            value={upcomingExerciseEnabled}
           />
 
           <GenericSwitch
@@ -102,7 +102,7 @@ const InsulinCalculator = () => {
         </View>
 
         <View>
-          <Text>Insulin Amount : {insulinAmount.toString()} u</Text>
+          <Text>Insulin Amount : {insulinAmount.toFixed(1)} u</Text>
           <Text>Prebolus Delay : {prebolusDelay.toString()} min</Text>
           <Text>Split Bolus : {shouldSplitBolus ? 'Yes' : 'No'}</Text>
         </View>

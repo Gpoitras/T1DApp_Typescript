@@ -53,8 +53,18 @@ export function CalculateInsulin (
       prebolus = 0;
     }
 
+    // rounds number to nearest 0.5
+    let decimal = insulin % 1;
+
+    if (decimal >= 0.75) {
+      insulin = Math.ceil(insulin);
+    } else if (decimal < 0.25) {
+      insulin = Math.floor(insulin);
+    } else {
+      insulin = Math.floor(insulin) + 0.5;
+    }
+
     return {insulin, prebolus, split};
   };
 
-  // export default CalculateInsulin;
-
+  
