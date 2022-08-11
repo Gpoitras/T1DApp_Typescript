@@ -15,7 +15,6 @@ const MainAppBar: FC<AppBars> = props => {
     <Appbar.Action
       icon="archive"
       onPress={() => {
-        console.log("rentre dans le onPress");
         props.navigateTo();
       }}
      />
