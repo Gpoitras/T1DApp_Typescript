@@ -7,3 +7,5 @@ To launch the app while an Android device is connected :
 To run tests :
 
 `npx vitest`
+
+When changing routes, reload (`r` in Node), don't refresh (Ctrl+S in VS Code).
