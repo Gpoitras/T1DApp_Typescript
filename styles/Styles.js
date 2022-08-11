@@ -6,6 +6,9 @@
 
 import {StyleSheet } from 'react-native';
 
+const mainColor = 'limegreen';
+const backgroundColor = '#171a24';
+
 const Styles = StyleSheet.create({
     input: {
       height: 40,
@@ -15,7 +18,7 @@ const Styles = StyleSheet.create({
     },
     button: {
       alignItems: 'center',
-      backgroundColor: 'limegreen',
+      backgroundColor: mainColor,
       padding: 10,
       margin: 20,
     },
@@ -42,12 +45,7 @@ const Styles = StyleSheet.create({
         backgroundColor: 'coral',
         borderWidth: 0,
     },
-    bottomBar: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-    },
+    
     buttonLabel: {
         fontSize: 12,
         fontWeight: '500',
@@ -60,11 +58,7 @@ const Styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 10,
     },
-    screenModel: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
+   
     headers: {
         textAlign: 'center',
         fontSize: 18,
@@ -74,6 +68,32 @@ const Styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 17,
         marginLeft: 8,
+    }, 
+    screenModel: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: backgroundColor
+    },
+    screenHeader: {
+      flex: 2,
+      width:'100%', 
+      backgroundColor: mainColor,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    screenHeaderText: {
+      color: 'black'
+    },
+    screenBody: {
+      flex: 12,
+      paddingTop: 30,
+      paddingBottom: 30,
+    },
+    mainAppBar: {
+      flex: 1,
+      backgroundColor: mainColor,
+      width: '100%'
     },
   });
 

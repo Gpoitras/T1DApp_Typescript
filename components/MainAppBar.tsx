@@ -1,13 +1,12 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable semi */
 
-
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import Styles from '../styles/Styles';
 
 const MainAppBar = () => (
- <Appbar style={styles.bottom}>
+ <Appbar style={Styles.mainAppBar}>
    <Appbar.Action
      icon="camera"
      onPress={() => console.log('Pressed archive')}
@@ -16,14 +15,4 @@ const MainAppBar = () => (
  );
 
 export default MainAppBar
-
-const styles = StyleSheet.create({
-  bottom: {
-    backgroundColor: 'limegreen',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-});
 
