@@ -7,6 +7,7 @@ import ScreenHeader from './ScreenHeader';
 import ScreenBody from './ScreenBody';
 
 interface ScreenModel {
+  navigateTo: any;
   screenTitle: string;
   children: any;
 }
@@ -16,7 +17,7 @@ const ScreenModel: FC<ScreenModel> = props => {
     <View style={Styles.screenModel}>
       <ScreenHeader title={props.screenTitle}/>
       <ScreenBody children={props.children} />
-      <MainAppBar />
+      <MainAppBar navigateTo={props.navigateTo} />
     </View>
   );
 }

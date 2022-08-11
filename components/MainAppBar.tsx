@@ -1,18 +1,29 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable semi */
 
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Appbar } from 'react-native-paper';
 import Styles from '../styles/Styles';
 
-const MainAppBar = () => (
- <Appbar style={Styles.mainAppBar}>
-   <Appbar.Action
-     icon="archive"
-     onPress={() => console.log('Pressed archive')}
-    />
-  </Appbar>
- );
+interface AppBars {
+  navigateTo: any;
+}
 
-export default MainAppBar
+const MainAppBar: FC<AppBars> = props => {
+  return (
+  <Appbar style={Styles.mainAppBar}>
+    <Appbar.Action
+      icon="archive"
+      onPress={() => {
+        console.log("rentre dans le onPress");
+        props.navigateTo();
+      }}
+     />
+   </Appbar>
+   );
+  
+}
+ 
+
+export default MainAppBar;
 
