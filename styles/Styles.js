@@ -6,7 +6,7 @@
 
 import {StyleSheet } from 'react-native';
 
-const mainColor = 'limegreen';
+const mainColor = '#f4511e';
 const backgroundColor = '#171a24';
 
 const Styles = StyleSheet.create({
@@ -82,10 +82,6 @@ const Styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    screenHeaderText: {
-      fontWeight: 'bold',
-      fontSize: 25
-    },
     screenBody: {
       flex: 12,
       paddingTop: 30,
@@ -94,7 +90,8 @@ const Styles = StyleSheet.create({
     mainAppBar: {
       flex: 1,
       backgroundColor: mainColor,
-      width: '100%'
+      width: '100%',
+      height: 50
     },
   });
 
