@@ -84,6 +84,7 @@ const App = () => {
 
         <Tab.Screen name="InsulinCalculator" 
                     options={{ 
+                      title: "Insulin Calculator",
                       tabBarLabel: 'Insulin Calculator',
                       tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="rocket" size={30} color="#900" />
@@ -97,7 +98,8 @@ const App = () => {
 
         <Tab.Screen name="BolusList" 
                     options={{ 
-                      tabBarLabel: 'Insulin Calculator',
+                      title: "Bolus List",
+                      tabBarLabel: 'Bolus List',
                       tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="rocket" size={30} color="#900" />
                       ), }}>

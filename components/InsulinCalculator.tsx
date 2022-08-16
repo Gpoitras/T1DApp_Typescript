@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react';
+import * as React from 'react';
+import {useState, useRef} from 'react';
 import { Text, View, TextInput, Alert } from 'react-native';
 import GenericSwitch from './GenericSwitch';
 import GenericRowButtons from './GenericRowButton';
@@ -39,9 +40,12 @@ const InsulinCalculator = () => {
     setShouldSplitBolus(result.split);
   };
 
+  const inputRef = React.useRef<TextInput>();
+
   return (
       <View>
         <View>
+          
           <View style={Styles.row}>
             <Text>Enter carbs (g)</Text>
             <TextInput
@@ -50,6 +54,10 @@ const InsulinCalculator = () => {
               onChangeText={newText => setCarbs(newText)}
               placeholder="0"
               keyboardType="numeric"
+
+              returnKeyType="next"
+              onSubmitEditing={() => inputRef.current?.focus()}
+              blurOnSubmit={false}
             />
           </View>
           <View style={Styles.row}>
@@ -60,6 +68,7 @@ const InsulinCalculator = () => {
               onChangeText={newText => setCurrentBG(newText)}
               placeholder="0"
               keyboardType="numeric"
+              ref={inputRef}
             />
           </View>
 
